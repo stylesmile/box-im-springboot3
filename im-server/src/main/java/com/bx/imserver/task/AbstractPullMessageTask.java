@@ -2,12 +2,12 @@ package com.bx.imserver.task;
 
 import com.bx.imcommon.util.ThreadPoolExecutorFactory;
 import com.bx.imserver.netty.IMServerGroup;
+import jakarta.annotation.PreDestroy;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 
-import javax.annotation.PreDestroy;
 import java.util.concurrent.ExecutorService;
 
 @Slf4j

@@ -1,0 +1,22 @@
+server:
+  port: 8678
+
+spring:
+  data:
+    redis:
+      host: 127.0.0.1
+      port: 6379
+      database: 1
+      password: 123456
+
+websocket:
+  enable: true
+  port: 8878
+
+tcpsocket:
+  enable: false # 暂时不开启
+  port: 8879
+
+jwt:
+  accessToken:
+    secret: MIIBIjANBgkq  # 跟im-platfrom的secret必须一致
