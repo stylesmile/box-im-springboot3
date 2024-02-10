@@ -31,7 +31,7 @@ public class PrivateMessageController {
 
     @DeleteMapping("/recall/{id}")
     @Operation(summary = "撤回消息", description = "撤回私聊消息")
-    public Result<Long> recallMessage(@NotNull(message = "消息id不能为空") @PathVariable Long id) {
+    public Result<Long> recallMessage(@NotNull(message = "消息id不能为空") @PathVariable("id") Long id) {
         privateMessageService.recallMessage(id);
         return ResultUtils.success();
     }
