@@ -5,6 +5,7 @@ import com.bx.implatform.result.Result;
 import com.bx.implatform.result.ResultUtils;
 import com.bx.implatform.service.IGroupMessageService;
 import com.bx.implatform.vo.GroupMessageVO;
+import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
@@ -36,10 +37,11 @@ public class GroupMessageController {
     }
 
 
+    @Parameter(description = "id")
     @GetMapping("/loadMessage")
     @Operation(summary = "拉取消息", description = "拉取消息,一次最多拉取100条")
-    public Result<List<GroupMessageVO>> loadMessage(@RequestParam Integer minId) {
-        return ResultUtils.success(groupMessageService.loadMessage(Long.valueOf(minId)));
+    public Result<List<GroupMessageVO>> loadMessage(@RequestParam Long minId) {
+        return ResultUtils.success(groupMessageService.loadMessage(minId));
     }
 
 

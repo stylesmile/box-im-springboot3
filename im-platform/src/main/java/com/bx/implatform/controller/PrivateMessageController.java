@@ -39,8 +39,8 @@ public class PrivateMessageController {
 
     @GetMapping("/loadMessage")
     @Operation(summary = "拉取消息", description = "拉取消息,一次最多拉取100条")
-    public Result<List<PrivateMessageVO>> loadMessage(@RequestParam Integer minId) {
-        return ResultUtils.success(privateMessageService.loadMessage(Long.valueOf(minId)));
+    public Result<List<PrivateMessageVO>> loadMessage(@RequestParam Long minId) {
+        return ResultUtils.success(privateMessageService.loadMessage(minId));
     }
 
     @PutMapping("/readed")
