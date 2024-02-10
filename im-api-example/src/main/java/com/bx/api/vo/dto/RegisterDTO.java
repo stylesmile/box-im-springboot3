@@ -1,10 +1,9 @@
 package com.bx.api.vo.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
-
-import jakarta.validation.constraints.NotEmpty;
 
 @Data
 @Schema(description = "用户注册DTO")
