@@ -4,24 +4,24 @@ import com.bx.imclient.sender.IMSender;
 import com.bx.imcommon.enums.IMTerminalType;
 import com.bx.imcommon.model.IMGroupMessage;
 import com.bx.imcommon.model.IMPrivateMessage;
-import lombok.AllArgsConstructor;
-import org.springframework.context.annotation.Configuration;
+import jakarta.annotation.Resource;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
 
-@Configuration
-@AllArgsConstructor
+@Service
 public class IMClient {
 
-    private final IMSender imSender;
+    @Resource
+    private IMSender imSender;
 
     /**
      * 判断用户是否在线
      *
      * @param userId 用户id
      */
-    public Boolean isOnline(Long userId){
+    public Boolean isOnline(Long userId) {
         return imSender.isOnline(userId);
     }
 
@@ -31,7 +31,7 @@ public class IMClient {
      * @param userIds 用户id列表
      * @return 在线的用户列表
      */
-    public List<Long> getOnlineUser(List<Long> userIds){
+    public List<Long> getOnlineUser(List<Long> userIds) {
         return imSender.getOnlineUser(userIds);
     }
 
@@ -42,7 +42,7 @@ public class IMClient {
      * @param userIds 用户id列表
      * @return 在线的用户终端
      */
-    public Map<Long,List<IMTerminalType>> getOnlineTerminal(List<Long> userIds){
+    public Map<Long, List<IMTerminalType>> getOnlineTerminal(List<Long> userIds) {
         return imSender.getOnlineTerminal(userIds);
     }
 
@@ -51,7 +51,7 @@ public class IMClient {
      *
      * @param message 私有消息
      */
-    public<T> void sendPrivateMessage(IMPrivateMessage<T> message){
+    public <T> void sendPrivateMessage(IMPrivateMessage<T> message) {
         imSender.sendPrivateMessage(message);
     }
 
@@ -60,7 +60,7 @@ public class IMClient {
      *
      * @param message 群聊消息
      */
-    public<T> void sendGroupMessage(IMGroupMessage<T> message){
+    public <T> void sendGroupMessage(IMGroupMessage<T> message) {
         imSender.sendGroupMessage(message);
     }
 

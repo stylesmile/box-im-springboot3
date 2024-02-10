@@ -6,12 +6,12 @@ import com.bx.imclient.listener.MessageListenerMulticaster;
 import com.bx.imcommon.contant.IMRedisKey;
 import com.bx.imcommon.enums.IMListenerType;
 import com.bx.imcommon.model.IMSendResult;
+import jakarta.annotation.Resource;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;

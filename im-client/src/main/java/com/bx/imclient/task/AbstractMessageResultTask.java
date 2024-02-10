@@ -1,11 +1,11 @@
 package com.bx.imclient.task;
 
 import com.bx.imcommon.util.ThreadPoolExecutorFactory;
+import jakarta.annotation.PreDestroy;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 
-import javax.annotation.PreDestroy;
 import java.util.concurrent.ExecutorService;
 
 @Slf4j
