@@ -10,14 +10,15 @@ spring:
       matching-strategy: ant_path_matcher
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/box-im?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://localhost:3306/solo-test?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowPublicKeyRetrieval=true
     username: root
-    password: root
-
-  redis:
-    host: 127.0.0.1
-    port: 6379
-    database: 1
+    password: 123456
+  data:
+    redis:
+      host: 127.0.0.1
+      port: 6379
+      database: 3
+      password: 123456
 
   servlet:
     multipart:
@@ -27,17 +28,18 @@ spring:
 mybatis-plus:
   configuration:
     # 是否开启自动驼峰命名规则（camel case）映射，即从经典数据库列名 A_COLUMN（下划线命名） 到经典 Java 属性名 aColumn（驼峰命名） 的类似映射
-    map-underscore-to-camel-case: false
+    map-underscore-to-camel-case: true
     #log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     # mapper
   mapper-locations:
     # *.xml的具体路径
     - classpath*:mapper/*.xml
 minio:
-  endpoint: http://127.0.0.1:9001 #内网地址
-  public: http://127.0.0.1:9001  #外网访问地址
-  accessKey: admin
-  secretKey: 12345678
+  #  endpoint: http://8.148.11.20:9001 #内网地址
+  endpoint: http://8.148.11.20:9000 #内网地址
+  public: http://8.148.11.20:9000  #外网访问地址
+  accessKey: minioadmin
+  secretKey: minioadmin
   bucketName: box-im
   imagePath: image
   filePath: file

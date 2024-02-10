@@ -6,22 +6,22 @@ import com.bx.implatform.service.IGroupService;
 import com.bx.implatform.vo.GroupInviteVO;
 import com.bx.implatform.vo.GroupMemberVO;
 import com.bx.implatform.vo.GroupVO;
-import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.Operation;
-import lombok.RequiredArgsConstructor;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.annotation.Resource;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Tag(name = "群聊")
 @RestController
 @RequestMapping("/group")
-@RequiredArgsConstructor
 public class GroupController {
 
-    private final IGroupService groupService;
+    @Resource
+    private IGroupService groupService;
 
     @Operation(summary = "创建群聊", description = "创建群聊")
     @PostMapping("/create")

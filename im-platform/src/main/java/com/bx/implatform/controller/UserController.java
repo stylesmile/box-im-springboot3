@@ -11,11 +11,12 @@ import com.bx.implatform.vo.OnlineTerminalVO;
 import com.bx.implatform.vo.UserVO;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.Operation;
+import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotEmpty;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotEmpty;
 import java.util.List;
 
 @Tag(name = "用户")
@@ -28,7 +29,7 @@ public class UserController {
 
     @GetMapping("/terminal/online")
     @Operation(summary = "判断用户哪个终端在线", description = "返回在线的用户id的终端集合")
-    public Result<List<OnlineTerminalVO>> getOnlineTerminal(@NotEmpty @RequestParam("userIds") String userIds) {
+    public Result<List<OnlineTerminalVO>> getOnlineTerminal(@NotNull @RequestParam("userIds") String userIds) {
         return ResultUtils.success(userService.getOnlineTerminals(userIds));
     }
 
@@ -45,7 +46,7 @@ public class UserController {
 
     @GetMapping("/find/{id}")
     @Operation(summary = "查找用户", description = "根据id查找用户")
-    public Result<UserVO> findById(@NotEmpty @PathVariable("id") Long id) {
+    public Result<UserVO> findById(@NotNull @PathVariable("id") Long id) {
         return ResultUtils.success(userService.findUserById(id));
     }
 

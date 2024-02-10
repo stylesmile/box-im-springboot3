@@ -10,8 +10,8 @@ import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import java.util.List;
 
 @Tag(name = "群聊消息")
@@ -38,8 +38,8 @@ public class GroupMessageController {
 
     @GetMapping("/loadMessage")
     @Operation(summary = "拉取消息", description = "拉取消息,一次最多拉取100条")
-    public Result<List<GroupMessageVO>> loadMessage(@RequestParam Long minId) {
-        return ResultUtils.success(groupMessageService.loadMessage(minId));
+    public Result<List<GroupMessageVO>> loadMessage(@RequestParam Integer minId) {
+        return ResultUtils.success(groupMessageService.loadMessage(Long.valueOf(minId)));
     }
 
 

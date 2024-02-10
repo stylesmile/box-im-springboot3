@@ -70,9 +70,9 @@ public class PrivateMessage extends Model<PrivateMessage> {
     private Date sendTime;
 
 
-    @Override
-    protected Serializable pkVal() {
-        return this.id;
-    }
+//    @Override
+//    protected Serializable pkVal() {
+//        return this.id;
+//    }
 
 }

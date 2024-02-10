@@ -63,9 +63,9 @@ public class Friend extends Model<Friend> {
     private Date createdTime;
 
 
-    @Override
-    protected Serializable pkVal() {
-        return this.id;
-    }
+//    @Override
+//    protected Serializable pkVal() {
+//        return this.id;
+//    }
 
 }

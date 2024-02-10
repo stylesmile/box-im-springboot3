@@ -92,9 +92,9 @@ public class User extends Model<User> {
     private Date createdTime;
 
 
-    @Override
-    protected Serializable pkVal() {
-        return this.id;
-    }
+//    @Override
+//    protected Serializable pkVal() {
+//        return this.id;
+//    }
 
 }

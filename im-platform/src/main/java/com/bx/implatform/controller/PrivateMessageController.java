@@ -10,8 +10,8 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import java.util.List;
 
 @Tag(name = "私聊消息", description = "私聊消息")
@@ -39,8 +39,8 @@ public class PrivateMessageController {
 
     @GetMapping("/loadMessage")
     @Operation(summary = "拉取消息", description = "拉取消息,一次最多拉取100条")
-    public Result<List<PrivateMessageVO>> loadMessage(@RequestParam Long minId) {
-        return ResultUtils.success(privateMessageService.loadMessage(minId));
+    public Result<List<PrivateMessageVO>> loadMessage(@RequestParam Integer minId) {
+        return ResultUtils.success(privateMessageService.loadMessage(Long.valueOf(minId)));
     }
 
     @PutMapping("/readed")

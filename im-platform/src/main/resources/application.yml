@@ -2,10 +2,10 @@ spring:
   profiles:
     active: dev
 
-# 上下文路径
-server:
-  servlet:
-    context-path: /
+## 上下文路径
+#server:
+#  servlet:
+#    context-path: /
 
 knife4j:
   enable: true

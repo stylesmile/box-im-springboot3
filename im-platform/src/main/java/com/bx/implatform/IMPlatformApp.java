@@ -5,12 +5,14 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 @Slf4j
 @EnableAspectJAutoProxy(exposeProxy = true)
 @MapperScan(basePackages = {"com.bx.implatform.mapper"})
 @SpringBootApplication(exclude = {SecurityAutoConfiguration.class})// 禁用secrity
+@ComponentScan("com.bx")
 public class IMPlatformApp {
 
     public static void main(String[] args) {

@@ -80,9 +80,9 @@ public class GroupMessage extends Model<GroupMessage> {
     private Date sendTime;
 
 
-    @Override
-    protected Serializable pkVal() {
-        return this.id;
-    }
+//    @Override
+//    protected Serializable pkVal() {
+//        return this.id;
+//    }
 
 }

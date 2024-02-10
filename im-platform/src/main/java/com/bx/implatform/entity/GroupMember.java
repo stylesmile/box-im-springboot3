@@ -77,9 +77,9 @@ public class GroupMember extends Model<GroupMember> {
     private Date createdTime;
 
 
-    @Override
-    protected Serializable pkVal() {
-        return this.id;
-    }
+//    @Override
+//    protected Serializable pkVal() {
+//        return this.id;
+//    }
 
 }
