@@ -17,12 +17,12 @@
     </modules>
 
     <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-        <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.compilerVersion>17</maven.compiler.compilerVersion>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>1.8</java.version>
+        <java.version>17</java.version>
         <mybatisplus-spring-boot-starter.version>3.3.2</mybatisplus-spring-boot-starter.version>
         <fastjson.version>1.2.40</fastjson.version>
         <velocity.version>1.7</velocity.version>
@@ -33,7 +33,7 @@
         <alipay.version>3.7.110.ALL</alipay.version>
         <zxing.version>3.3.3</zxing.version>
         <commons-lang3.version>3.8.1</commons-lang3.version>
-        <lombok.version>1.18.16</lombok.version>
+        <lombok.version>1.18.30</lombok.version>
         <mysql.version>5.1.46</mysql.version>
     </properties>
 
