@@ -1,57 +1,29 @@
-#这是配置服务的端口
-server:
-  port: 8888
-#配置项目的数据源
 spring:
-  application:
-    name: im-platform
-  mvc:
-    pathmatch:
-      matching-strategy: ant_path_matcher
-  datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/box-im?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowPublicKeyRetrieval=true
-    username: root
-    password: root
+  profiles:
+    active: dev
 
-  redis:
-    host: 127.0.0.1
-    port: 6379
-    database: 1
-
+# 上下文路径
+server:
   servlet:
-    multipart:
-      max-file-size: 50MB
-      max-request-size: 50MB
+    context-path: /
 
-mybatis-plus:
-  configuration:
-    # 是否开启自动驼峰命名规则（camel case）映射，即从经典数据库列名 A_COLUMN（下划线命名） 到经典 Java 属性名 aColumn（驼峰命名） 的类似映射
-    map-underscore-to-camel-case: false
-    #log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-    # mapper
-  mapper-locations:
-    # *.xml的具体路径
-    - classpath*:mapper/*.xml
-minio:
-  endpoint: http://127.0.0.1:9001 #内网地址
-  public: http://127.0.0.1:9001  #外网访问地址
-  accessKey: admin
-  secretKey: 12345678
-  bucketName: box-im
-  imagePath: image
-  filePath: file
-  videoPath: video
-
-webrtc:
-  iceServers:
-    - urls: stun:stun.l.google.com:19302
-
-jwt:
-  accessToken:
-    expireIn: 1800 #半个小时
-    secret: MIIBIjANBgkq
-  refreshToken:
-    expireIn: 604800 #7天
-    secret: IKDiqVmn0VFU
+knife4j:
+  enable: true
+  openapi:
+    title: Knife4j官方文档
+    description: "`我是测试`,**你知道吗**
+    # aaa"
+    email: xiaoymin@foxmail.com
+    concat: 八一菜刀
+    url: https://docs.xiaominfo.com
+    version: v4.0
+    license: Apache 2.0
+    license-url: https://stackoverflow.com/
+    terms-of-service-url: https://stackoverflow.com/
+    group:
+      test1:
+        group-name: 分组名称
+        api-rule: package
+        api-rule-resources:
+          - com.bx.implatform.controller
 

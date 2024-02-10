@@ -2,7 +2,7 @@ package com.bx.implatform.vo;
 
 import com.bx.imcommon.serializer.DateToLongSerializer;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import java.util.Date;
@@ -11,31 +11,31 @@ import java.util.List;
 @Data
 public class GroupMessageVO {
 
-    @ApiModelProperty(value = "消息id")
+    @Schema(description = "消息id")
     private Long id;
 
-    @ApiModelProperty(value = "群聊id")
+    @Schema(description = "群聊id")
     private Long groupId;
 
-    @ApiModelProperty(value = " 发送者id")
+    @Schema(description = " 发送者id")
     private Long sendId;
 
-    @ApiModelProperty(value = " 发送者昵称")
+    @Schema(description = " 发送者昵称")
     private String sendNickName;
 
-    @ApiModelProperty(value = "消息内容")
+    @Schema(description = "消息内容")
     private String content;
 
-    @ApiModelProperty(value = "消息内容类型 具体枚举值由应用层定义")
+    @Schema(description = "消息内容类型 具体枚举值由应用层定义")
     private Integer type;
 
-    @ApiModelProperty(value = "@用户列表")
+    @Schema(description = "@用户列表")
     private List<Long> atUserIds;
 
-    @ApiModelProperty(value = " 状态")
+    @Schema(description = " 状态")
     private Integer status;
 
-    @ApiModelProperty(value = "发送时间")
+    @Schema(description = "发送时间")
     @JsonSerialize(using = DateToLongSerializer.class)
     private Date sendTime;
 }
