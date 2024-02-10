@@ -5,7 +5,7 @@ package com.bx.api.filter;//package com.bx.api.filter;
 //
 //import javax.servlet.*;
 //import javax.servlet.annotation.WebFilter;
-//import javax.servlet.http.HttpServletRequest;
+//import jakarta.servlet.http.HttpServletRequest;
 //import java.io.IOException;
 //
 //@Component
