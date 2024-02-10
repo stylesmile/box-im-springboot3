@@ -7,11 +7,11 @@ import com.bx.implatform.service.IPrivateMessageService;
 import com.bx.implatform.vo.PrivateMessageVO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
 import java.util.List;
 
 @Tag(name = "私聊消息", description = "私聊消息")
@@ -39,28 +39,28 @@ public class PrivateMessageController {
 
     @GetMapping("/loadMessage")
     @Operation(summary = "拉取消息", description = "拉取消息,一次最多拉取100条")
-    public Result<List<PrivateMessageVO>> loadMessage(@RequestParam Long minId) {
+    public Result<List<PrivateMessageVO>> loadMessage(@RequestParam("minId") Long minId) {
         return ResultUtils.success(privateMessageService.loadMessage(minId));
     }
 
     @PutMapping("/readed")
     @Operation(summary = "消息已读", description = "将会话中接收的消息状态置为已读")
-    public Result readedMessage(@RequestParam Long friendId) {
+    public Result readedMessage(@RequestParam("friendId") Long friendId) {
         privateMessageService.readedMessage(friendId);
         return ResultUtils.success();
     }
 
     @GetMapping("/maxReadedId")
     @Operation(summary = "获取最大已读消息的id", description = "获取某个会话中已读消息的最大id")
-    public Result<Long> getMaxReadedId(@RequestParam Long friendId) {
+    public Result<Long> getMaxReadedId(@RequestParam("friendId") Long friendId) {
         return ResultUtils.success(privateMessageService.getMaxReadedId(friendId));
     }
 
     @GetMapping("/history")
     @Operation(summary = "查询聊天记录", description = "查询聊天记录")
-    public Result<List<PrivateMessageVO>> recallMessage(@NotNull(message = "好友id不能为空") @RequestParam Long friendId,
-                                                        @NotNull(message = "页码不能为空") @RequestParam Long page,
-                                                        @NotNull(message = "size不能为空") @RequestParam Long size) {
+    public Result<List<PrivateMessageVO>> recallMessage(@NotNull(message = "好友id不能为空") @RequestParam("friendId") Long friendId,
+                                                        @NotNull(message = "页码不能为空") @RequestParam("page") Long page,
+                                                        @NotNull(message = "size不能为空") @RequestParam("size") Long size) {
         return ResultUtils.success(privateMessageService.findHistoryMessage(friendId, page, size));
     }
 

@@ -21,14 +21,14 @@ public class WebrtcController {
 
     @Operation(method = "POST", description = "呼叫视频通话")
     @PostMapping("/call")
-    public Result call(@RequestParam Long uid, @RequestBody String offer) {
+    public Result call(@RequestParam("uid") Long uid, @RequestBody String offer) {
         webrtcService.call(uid, offer);
         return ResultUtils.success();
     }
 
     @Operation(method = "POST", description = "接受视频通话")
     @PostMapping("/accept")
-    public Result accept(@RequestParam Long uid, @RequestBody String answer) {
+    public Result accept(@RequestParam("uid") Long uid, @RequestBody String answer) {
         webrtcService.accept(uid, answer);
         return ResultUtils.success();
     }
@@ -36,28 +36,28 @@ public class WebrtcController {
 
     @Operation(method = "POST", description = "拒绝视频通话")
     @PostMapping("/reject")
-    public Result reject(@RequestParam Long uid) {
+    public Result reject(@RequestParam("uid") Long uid) {
         webrtcService.reject(uid);
         return ResultUtils.success();
     }
 
     @Operation(method = "POST", description = "取消呼叫")
     @PostMapping("/cancel")
-    public Result cancel(@RequestParam Long uid) {
+    public Result cancel(@RequestParam("uid") Long uid) {
         webrtcService.cancel(uid);
         return ResultUtils.success();
     }
 
     @Operation(method = "POST", description = "呼叫失败")
     @PostMapping("/failed")
-    public Result failed(@RequestParam Long uid, @RequestParam String reason) {
+    public Result failed(@RequestParam("uid") Long uid, @RequestParam("reason") String reason) {
         webrtcService.failed(uid, reason);
         return ResultUtils.success();
     }
 
     @Operation(method = "POST", description = "挂断")
     @PostMapping("/handup")
-    public Result leave(@RequestParam Long uid) {
+    public Result leave(@RequestParam("uid") Long uid) {
         webrtcService.leave(uid);
         return ResultUtils.success();
     }
@@ -65,7 +65,7 @@ public class WebrtcController {
 
     @PostMapping("/candidate")
     @Operation(method = "POST", description = "同步candidate")
-    public Result forwardCandidate(@RequestParam Long uid, @RequestBody String candidate) {
+    public Result forwardCandidate(@RequestParam("uid") Long uid, @RequestBody String candidate) {
         webrtcService.candidate(uid, candidate);
         return ResultUtils.success();
     }

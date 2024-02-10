@@ -40,14 +40,14 @@ public class GroupMessageController {
     @Parameter(description = "id")
     @GetMapping("/loadMessage")
     @Operation(summary = "拉取消息", description = "拉取消息,一次最多拉取100条")
-    public Result<List<GroupMessageVO>> loadMessage(@RequestParam Long minId) {
+    public Result<List<GroupMessageVO>> loadMessage(@RequestParam("minId") Long minId) {
         return ResultUtils.success(groupMessageService.loadMessage(minId));
     }
 
 
     @PutMapping("/readed")
     @Operation(summary = "消息已读", description = "将群聊中的消息状态置为已读")
-    public Result readedMessage(@RequestParam Long groupId) {
+    public Result readedMessage(@RequestParam("groupId") Long groupId) {
         groupMessageService.readedMessage(groupId);
         return ResultUtils.success();
     }
@@ -55,9 +55,9 @@ public class GroupMessageController {
 
     @GetMapping("/history")
     @Operation(summary = "查询聊天记录", description = "查询聊天记录")
-    public Result<List<GroupMessageVO>> recallMessage(@NotNull(message = "群聊id不能为空") @RequestParam Long groupId,
-                                                      @NotNull(message = "页码不能为空") @RequestParam Long page,
-                                                      @NotNull(message = "size不能为空") @RequestParam Long size) {
+    public Result<List<GroupMessageVO>> recallMessage(@NotNull(message = "群聊id不能为空") @RequestParam("groupId") Long groupId,
+                                                      @NotNull(message = "页码不能为空") @RequestParam("page") Long page,
+                                                      @NotNull(message = "size不能为空") @RequestParam("size") Long size) {
         return ResultUtils.success(groupMessageService.findHistoryMessage(groupId, page, size));
     }
 }
